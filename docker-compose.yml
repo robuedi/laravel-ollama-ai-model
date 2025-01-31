@@ -23,6 +23,7 @@ services:
             - sail
         depends_on:
             - mysql
+            - ollama 
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -47,9 +48,23 @@ services:
                 - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
+
+    ollama:  
+        image: ollama/ollama
+        container_name: ollama
+        ports:
+            - "11434:11434"
+        volumes:
+            - ollama-data:/root/.ollama
+        networks:
+            - sail
+        restart: unless-stopped
+        entrypoint: bash -c '(sleep 2 ; ollama pull ${MODEL-mistral}) & exec ollama serve'
+
 networks:
     sail:
         driver: bridge
 volumes:
     sail-mysql:
         driver: local
+    ollama-data: 
