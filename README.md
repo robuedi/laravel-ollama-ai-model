@@ -8,9 +8,12 @@ This project is the backend API for interacting locally with a text AI model, in
 
 ## Setup
 
+0. Have Docker installed on your system
 1. Clone repo + composer install vendors
 2. Install Laravel Sail + in terminal in repo base `sail up -d`
 3. Prepare the DB with: `sail artisan migrate`
+
+WARNING: the AI model might use at least 12 GB of RAM, so please have more on your system.
 
 ## API Endpoints Docs
 
