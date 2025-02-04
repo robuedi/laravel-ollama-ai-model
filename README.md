@@ -9,7 +9,7 @@ This project is the backend API for interacting locally with a text AI model, in
 ## Setup
 
 0. Install Docker on your system
-1. `git clone git@github.com:robuedi/laravel-ollama-ai-model.git && cd laravel-ollama-ai-model`
+1. `git clone git@github.com:robuedi/ollama-ai-laravel.git && cd ollama-ai-laravel`
 2. `php artisan key:generate && composer install`
 2. start the docker containers, first time it will take longer `sail up -d`
 3. Prepare the DB with: `sail artisan migrate`
